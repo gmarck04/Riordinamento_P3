@@ -1,0 +1,11 @@
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\bin\Debug\netcoreapp2.1\Riordinamento_P3.deps.json
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\bin\Debug\netcoreapp2.1\Riordinamento_P3.runtimeconfig.json
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\bin\Debug\netcoreapp2.1\Riordinamento_P3.runtimeconfig.dev.json
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\bin\Debug\netcoreapp2.1\Riordinamento_P3.dll
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\bin\Debug\netcoreapp2.1\Riordinamento_P3.pdb
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.csprojAssemblyReference.cache
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.csproj.CoreCompileInputs.cache
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.AssemblyInfoInputs.cache
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.AssemblyInfo.cs
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.dll
+C:\Users\gmarc\OneDrive\Documenti\GitHub\Riordinamento_P3\Riordinamento_P3\Riordinamento_P3\obj\Debug\netcoreapp2.1\Riordinamento_P3.pdb
