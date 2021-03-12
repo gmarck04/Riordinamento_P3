@@ -44,7 +44,7 @@ namespace Riordinamento_P3
         public static int Max; //Inizializzo la variabile Max
         public static int Quantità = 0; //Inizializzo la variabile Quantità e le do valore 0
         public static int Collisioni = 0; //Inizializzo la variabile Collisioni e le do valore 0
-        //public static int randomNumber; //Inizializzo la variabile randomNumber
+        
         
 
         static int[] Generatore_numeri_Duplicati()
@@ -95,7 +95,7 @@ namespace Riordinamento_P3
         static int[] Generatore_numeri_Non_Duplicati()
         {
             Random random = new Random(); //Inizializza la classe random
-
+            int Collisioni = 0;
             Console.WriteLine("Inserisci quanti numeri vuoi generare, devono essere almeno 123456 numeri");
             Quantità = Convert.ToInt32(Console.ReadLine());
 
@@ -108,6 +108,13 @@ namespace Riordinamento_P3
 
             Console.WriteLine("Inserisci il numero massimo");
             Max = Convert.ToInt32(Console.ReadLine());
+            
+            while (Max < Quantità)
+            {
+                Console.WriteLine("\nDevi inserire un numero maggiore dei numeri richiesti");
+                Console.WriteLine("Inserisci il numero massimo");
+                Max = Convert.ToInt32(Console.ReadLine());
+            }
 
             Console.WriteLine("Inserisci il numero minimo");
             Min = Convert.ToInt32(Console.ReadLine());
@@ -131,11 +138,30 @@ namespace Riordinamento_P3
             for (int i = 0; i < Quantità; i++) //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici
             {
                 int randomNumber = random.Next(Min, Max); //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici      
+                                  
+                bool controllo = false;
+                for (int a = 0; a < numeri.Length; a++)
+                {
+                    if(numeri[a] == randomNumber)
+                    {
+                        controllo = true;
+                    }                    
+                }
 
-                numeri[i] = randomNumber; //Inserire nel file il valore nell'array numeri                                
+                if (controllo == true)
+                {
+                    Collisioni++;
+                    i--;
+                }
+                else
+                {
+                    numeri[i] = randomNumber;                    
+                }
             }
             return numeri;
         }
+            
+        
 
         static void Scelta_generatore_numeri()
         {
@@ -158,7 +184,7 @@ namespace Riordinamento_P3
                     {
                         int[] numeri_generati = Generatore_numeri_Duplicati();
 
-                        for (int i = 0; i < Quantità; i++) //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici
+                        for (int i = 0; i < Quantità; i++)
                         {
                             Console.WriteLine(numeri_generati[i]);
                         }
@@ -168,7 +194,7 @@ namespace Riordinamento_P3
                 case "1":
                     {
                         int[] numeri_generati = Generatore_numeri_Non_Duplicati();
-                        for (int i = 0; i < Quantità; i++) //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici
+                        for (int i = 0; i < Quantità; i++)
                         {
                             Console.WriteLine(numeri_generati[i]);
                         }
