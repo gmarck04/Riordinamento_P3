@@ -367,6 +367,7 @@ namespace Riordinamento_P3
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
 
+                                    Console.ReadKey();
                                 }
                                 break;
 
@@ -391,7 +392,7 @@ namespace Riordinamento_P3
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
 
-
+                                    Console.ReadKey();
                                 }
                                 break;
                         }
@@ -412,6 +413,7 @@ namespace Riordinamento_P3
                                     Console.WriteLine();
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
+                                    Console.ReadKey();
                                 }
                                 break;
 
@@ -426,6 +428,7 @@ namespace Riordinamento_P3
                                     Console.WriteLine();
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
+                                    Console.ReadKey();
                                 }
                                 break;
                         }
@@ -481,7 +484,7 @@ namespace Riordinamento_P3
             
             File.Close();          
 
-            Console.WriteLine($"\nIl selection sort ha finito");
+            Console.Write($"\nIl selection sort ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
             if (temRiordNum >= 1000)
             {
@@ -556,7 +559,7 @@ namespace Riordinamento_P3
 
             File.Close();
 
-            Console.WriteLine($"\nIl bubble sort con sentinella ha finito");
+            Console.Write($"\nIl bubble sort con sentinella ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
             if (temRiordNum >= 1000)
             {
@@ -602,7 +605,7 @@ namespace Riordinamento_P3
             }
 
             File.Close();
-            Console.WriteLine($"\nIl merge sort ha finito,");
+            Console.Write($"\nIl merge sort ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
             if (temRiordNum >= 1000)
             {
