@@ -694,10 +694,8 @@ namespace Riordinamento_P3
             string Scelta_generatore = Scelta_generatore_numeri();
             Console.Clear();
 
-            Swich(Scelta_multi_thread, Scelta_generatore);
-
+            Swich(Scelta_multi_thread, Scelta_generatore);            
             
-            //
             Console.ReadKey();
         }
         static public void classifica_algoritmi_di_ordinamento(long peso_selection_sort, long peso_bubble_sort_con_sentinella, long peso_merge_sort)
