@@ -359,9 +359,11 @@ namespace Riordinamento_P3
                                     Task selection_sort = new Task(Thread_selection_sort);
                                     selection_sort.Start();
 
+                                    merge_sort.Wait();
                                     bubble_sort.Wait();
-                                    merge_sort.Wait();
-                                    merge_sort.Wait();
+                                    selection_sort.Wait();
+
+                                    Console.WriteLine();
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
 
@@ -381,9 +383,11 @@ namespace Riordinamento_P3
                                     Task selection_sort = new Task(Thread_selection_sort);
                                     selection_sort.Start();
 
+                                    merge_sort.Wait();
                                     bubble_sort.Wait();
-                                    merge_sort.Wait();
-                                    merge_sort.Wait();
+                                    selection_sort.Wait();
+
+                                    Console.WriteLine();
 
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
 
@@ -404,6 +408,9 @@ namespace Riordinamento_P3
                                     algoritmo_selection_sort(numeri);
                                     algoritmo_bubble_sort_con_sentinella(numeri);
                                     algoritmo_merge_sort(numeri);
+
+                                    Console.WriteLine();
+
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
                                 }
                                 break;
@@ -415,6 +422,9 @@ namespace Riordinamento_P3
                                     algoritmo_selection_sort(numeri);
                                     algoritmo_bubble_sort_con_sentinella(numeri);
                                     algoritmo_merge_sort(numeri);
+
+                                    Console.WriteLine();
+
                                     classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
                                 }
                                 break;
