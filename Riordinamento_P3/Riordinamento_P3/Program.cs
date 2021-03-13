@@ -361,6 +361,9 @@ namespace Riordinamento_P3
 
                                     Thread bubble_sort = new Thread(Thread_bubble_sort_con_sentinella);
                                     bubble_sort.Start();
+
+                                    Thread merge_sort = new Thread(Thread_merge_sort);
+                                    merge_sort.Start();
                                 }
                                 break;
 
@@ -377,6 +380,9 @@ namespace Riordinamento_P3
 
                                     Thread bubble_sort = new Thread(Thread_bubble_sort_con_sentinella);
                                     bubble_sort.Start();
+
+                                    Thread merge_sort = new Thread(Thread_merge_sort);
+                                    merge_sort.Start();
                                 }
                                 break;
                         }
@@ -397,6 +403,7 @@ namespace Riordinamento_P3
 
                                     algoritmo_selection_sort(numeri);
                                     algoritmo_bubble_sort_con_sentinella(numeri);
+                                    algoritmo_merge_sort(numeri);
                                 }
                                 break;
 
@@ -410,6 +417,7 @@ namespace Riordinamento_P3
 
                                     algoritmo_selection_sort(numeri);
                                     algoritmo_bubble_sort_con_sentinella(numeri);
+                                    algoritmo_merge_sort(numeri);
                                 }
                                 break;
                         }
