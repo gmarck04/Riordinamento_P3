@@ -49,6 +49,7 @@ namespace Riordinamento_P3
         public static int Quantità = 0; //Inizializzo la variabile Quantità e le do valore 0
         public static int Collisioni = 0; //Inizializzo la variabile Collisioni e le do valore 0  
         public static int[] numeri = new int[0]; //array
+        static public long peso_selection_sort = 0, peso_bubble_sort_con_sentinella = 0, peso_merge_sort = 0;
 
         static int[] Generatore_numeri_Duplicati()
         {
@@ -515,7 +516,156 @@ namespace Riordinamento_P3
 
         static void algoritmo_merge_sort(int[] numeri)
         {
+            string filename = @"merge_sort.txt";
+            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename);
+            int sx = 0;
+            int dx = numeri.Length - 1;//servono al programma come indici per il merge sort
 
+            string elapsedTime = indici(numeri, sx, dx);
+
+            File.WriteLine("I numeri riordinati sono: "); //Digito a schermo la seguente frase
+            for (int i = 0; i < Quantità; i++) //Ciclo for per scrivere i numeri riordinati contenuti nell'array numeri
+            {
+                File.WriteLine(numeri[i]);
+            }
+
+            File.Close();
+            Console.WriteLine($"\nIl bubble sort con sentinella ha finito, ha impiegato {elapsedTime}");
+        }
+
+        public static string indici(int[] copia, int sinistra, int destra)//serve per il calcolo degli indici che vengono assegnati alla funzione riordina per poter riordinare gli array
+        {
+            Stopwatch stopWatch = new Stopwatch();
+            if (sinistra < destra)
+            {
+                int metà = (sinistra + destra) / 2;
+                peso_merge_sort++;
+
+                indici(copia, sinistra, metà);
+                indici(copia, metà + 1, destra);                
+
+                stopWatch.Start();
+                Riordina(copia, sinistra, metà, destra);
+                stopWatch.Stop();                
+            }
+            peso_merge_sort++;
+
+            TimeSpan ts = stopWatch.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            return elapsedTime;
+        }
+        public static void Riordina(int[] input, int sinistra, int metà, int destra)
+        {
+            int[] arraysx = new int[metà - sinistra + 1];//array usati per riordinare l'array 
+            int[] arraydx = new int[destra - metà];
+            Array.Copy(input, sinistra, arraysx, 0, metà - sinistra + 1);//serve per copiare gli elementi dall'array principale entro i limiti specificati  
+            Array.Copy(input, metà + 1, arraydx, 0, destra - metà);
+            int i = 0;
+            int k = 0;
+            peso_merge_sort += 5;
+            for (int a = sinistra; a < destra + 1; a++)
+            {
+                peso_merge_sort += 2;//per l'assegnazione del valore alla variabile a, e per il controllo del suo valore
+                if (i == arraysx.Length)//se la lunghezza dell'array di sinistra è pari alla prima variabile si effettua lo scambio
+                {
+                    input[a] = arraydx[k];
+                    k++;
+                    peso_merge_sort += 3;//per l'assegnazione delle du
+                }
+                else if (k == arraydx.Length)//se la lunghezza dell'array di destra è pari alla seconda variabile si effettua lo scambio
+                {
+                    input[a] = arraysx[i];
+                    i++;
+                    peso_merge_sort += 4;
+                }
+                else if (arraysx[i] <= arraydx[k])//se il valore che si trova nella posizione i dell'array di sinistra è minore del valore che si trova nella prosizione k dell'array di destar allora quel valore viene memorizzato nell'array principale 
+                {
+                    input[a] = arraysx[i];
+                    i++;
+                    peso_merge_sort += 5;
+                }
+                else//sennò viene salvato il secondo valore
+                {
+                    input[a] = arraydx[k];
+                    k++;
+                    peso_merge_sort += 5;
+                }
+            }
+        }
+        static public void classifica_algoritmi_di_ordinamento()
+        {
+            if (peso_selection_sort < peso_bubble_sort_con_sentinella && peso_merge_sort < peso_bubble_sort_con_sentinella)
+            {
+                Console.WriteLine($"1° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+                Console.WriteLine($"2° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+            }
+            else if (peso_selection_sort < peso_merge_sort && peso_bubble_sort_con_sentinella < peso_merge_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+                Console.WriteLine($"2° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+                Console.WriteLine($"3° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+            }
+            else if (peso_selection_sort < peso_merge_sort || peso_selection_sort < peso_bubble_sort_con_sentinella && peso_bubble_sort_con_sentinella == peso_merge_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+                Console.WriteLine($"2° posto, a pari peso abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni");
+                Console.WriteLine($"e poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+            }
+            else if (peso_selection_sort < peso_merge_sort || peso_bubble_sort_con_sentinella < peso_merge_sort && peso_bubble_sort_con_sentinella == peso_selection_sort)
+            {
+                Console.WriteLine($"1° posto, a pari peso abbiamo il selection sort che ha fatto {peso_selection_sort} azioni");
+                Console.WriteLine($"e poi abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+                Console.WriteLine($"3° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+            }
+            else if (peso_selection_sort < peso_bubble_sort_con_sentinella || peso_merge_sort < peso_bubble_sort_con_sentinella && peso_merge_sort == peso_selection_sort)
+            {
+                Console.WriteLine($"1° posto, a pari peso abbiamo il selection sort che ha fatto {peso_selection_sort} azioni");
+                Console.WriteLine($"e poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+            }
+            else if (peso_bubble_sort_con_sentinella < peso_selection_sort && peso_selection_sort < peso_merge_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+                Console.WriteLine($"2° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");                
+            }
+            else if (peso_bubble_sort_con_sentinella < peso_merge_sort && peso_merge_sort < peso_selection_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+                Console.WriteLine($"2° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+            }
+            else if (peso_bubble_sort_con_sentinella < peso_selection_sort || peso_bubble_sort_con_sentinella < peso_merge_sort && peso_selection_sort == peso_merge_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");                
+                Console.WriteLine($"2° posto, a pari peso abbiamo il selection sort che ha fatto {peso_selection_sort} azioni");
+                Console.WriteLine($"e poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+            }
+            else if (peso_bubble_sort_con_sentinella < peso_selection_sort || peso_merge_sort < peso_selection_sort && peso_bubble_sort_con_sentinella == peso_merge_sort)
+            {
+                Console.WriteLine($"1° posto, a pari peso abbiamo bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni");
+                Console.WriteLine($"e poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+            }
+            else if (peso_merge_sort < peso_bubble_sort_con_sentinella && peso_bubble_sort_con_sentinella < peso_selection_sort)
+            {
+                Console.WriteLine($"1° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"2° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+                Console.WriteLine($"3° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+            }
+            else if (peso_merge_sort < peso_selection_sort && peso_selection_sort < peso_bubble_sort_con_sentinella)
+            {
+                Console.WriteLine($"1° posto abbiamo il merge sort che ha fatto {peso_merge_sort} azioni.");
+                Console.WriteLine($"2° posto abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+                Console.WriteLine($"3° posto abbiamo il bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni.");
+            }
+            else if (peso_merge_sort == peso_selection_sort && peso_selection_sort == peso_bubble_sort_con_sentinella)
+            {
+                Console.WriteLine($"1° posto, a pari peso abbiamo bubble sort con sentinella che ha fatto {peso_bubble_sort_con_sentinella} azioni,");
+                Console.WriteLine($"poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni ");
+                Console.WriteLine($"e poi abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
+            }
         }
 
         static void Main(string[] args)
@@ -526,7 +676,7 @@ namespace Riordinamento_P3
             Console.Clear();
 
             Swich(Scelta_multi_thread, Scelta_generatore);
-
+            classifica_algoritmi_di_ordinamento();
             Console.ReadKey();
         }
     }
