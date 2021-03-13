@@ -459,6 +459,7 @@ namespace Riordinamento_P3
                     peso_selection_sort += 6;
                     if (numeri[j] < numeri[min]) //Controllo se il numero preso è minore o meno del numero contenuto in min
                     {
+                        peso_selection_sort += 2;
                         min = j; //Pongo min uguale al valore di j
                         peso_selection_sort += 2;
                     }
@@ -528,7 +529,7 @@ namespace Riordinamento_P3
                 peso_bubble_sort_con_sentinella += 2;
                 for (int i = 0; i < Sentinella - 1; i++)
                 {
-                    peso_selection_sort += 6;
+                    peso_bubble_sort_con_sentinella += 6;
                     if (numeri[i] > numeri[i + 1])
                     {
                         temp = numeri[i];
@@ -536,7 +537,9 @@ namespace Riordinamento_P3
                         numeri[i + 1] = temp;
                         peso_bubble_sort_con_sentinella += 3;
                         x = 1;
+                        peso_bubble_sort_con_sentinella += 2;
                         y = i + 1;
+                        peso_bubble_sort_con_sentinella += 2;
                     }                    
                 }
                 Sentinella = y;
