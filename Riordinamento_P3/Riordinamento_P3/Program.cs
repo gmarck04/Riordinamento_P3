@@ -190,7 +190,36 @@ namespace Riordinamento_P3
                 Console.WriteLine("massimo.");
                 Console.ForegroundColor = ConsoleColor.White;
 
-                Max = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Devi inserire un numero minore del valore massimo ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("maggiore ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("del valore ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("minimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("massimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
+
+                while (numero_intero_Max == false)
+                {
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("massimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
+                }
             }
 
             Array.Resize(ref numeri, Quantità); //ridimensiona l'array numeri e gli da valore Quantità
@@ -209,7 +238,15 @@ namespace Riordinamento_P3
             Console.Clear();
             Random random = new Random(); //Inizializza la classe random
             int Collisioni = 0;
-            Console.WriteLine("Inserisci quanti numeri vuoi generare, devono essere almeno 123456 numeri");
+
+            Console.Write("Inserisci quanti numeri vuoi generare, devono essere ");
+            Console.ForegroundColor = ConsoleColor.Blue; //cambio colore delle parole a schermo
+            Console.Write("almeno ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("123456 ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("numeri.");
+
             bool numero_intero_Quantità = Int32.TryParse(Console.ReadLine(),out Quantità);      
 
             while (numero_intero_Quantità == false || Quantità < 123456) //ciclo che entra in funzione se numero_intero_Quantità == false o se Quantità è minore di 123456
@@ -217,19 +254,44 @@ namespace Riordinamento_P3
                 Console.Clear();
                 if (numero_intero_Quantità == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
-                    Console.WriteLine("Devi inserire un valore intero");
-                    Console.WriteLine("Inserisci quanti numeri vuoi generare");
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("quanti ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri vuoi generare.");
+
                     numero_intero_Quantità = Int32.TryParse(Console.ReadLine(), out Quantità);
                 }
                 else
                 {
-                    Console.WriteLine("Devi inserire almeno 123456 numeri");
-                    Console.WriteLine("Inserisci quanti numeri vuoi generare");
+                    Console.Write("Devi inserire ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("almeno ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("123456 ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri.");
+
+                    Console.Write("Inserisci ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("quanti ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri vuoi generare.");
+
                     numero_intero_Quantità = Int32.TryParse(Console.ReadLine(), out Quantità);
                 }                
             }
 
-            Console.WriteLine("Inserisci il numero massimo");
+            Console.Write("Inserisci il numero ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("massimo.");
+            Console.ForegroundColor = ConsoleColor.White;
+
             bool numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
 
             while (numero_intero_Max == false || Max < Quantità) //ciclo che entra in funzione se numero_intero_Max == false o se Max è minore del valore di Quantità
@@ -237,19 +299,40 @@ namespace Riordinamento_P3
                 Console.Clear();
                 if (numero_intero_Max == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
-                    Console.WriteLine("Devi inserire un valore intero");
-                    Console.WriteLine("Inserisci il numero massimo");
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("massimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
                 }
                 else
                 {
-                    Console.WriteLine("Devi inserire un numero maggiore dei numeri richiesti");
-                    Console.WriteLine("Inserisci il numero massimo");
+                    Console.Write("Devi inserire un numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("maggiore ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("dei numeri richiesti");
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("massimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
                 }
             }
 
-            Console.WriteLine("Inserisci il numero minimo");
+            Console.Write("Inserisci il numero ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("minimo.");
+            Console.ForegroundColor = ConsoleColor.White;
+
             bool numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);
 
             while (numero_intero_Min == false || Min > Max) //ciclo che entra in funzione se numero_intero_Min == false o se Min è minore del valore di Max
@@ -257,14 +340,34 @@ namespace Riordinamento_P3
                 Console.Clear();
                 if (numero_intero_Min == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
-                    Console.WriteLine("Devi inserire un valore intero");
-                    Console.WriteLine("Inserisci il numero minimo");
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("minimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);
                 }
                 else
                 {
-                    Console.WriteLine("Devi inserire un numero minore del valore massimo");
-                    Console.WriteLine("Inserisci il numero minimo");
+                    Console.Write("Devi inserire un numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("minore ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("del valore ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("massimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("minimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
                     numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);
                 }
             }
@@ -272,9 +375,37 @@ namespace Riordinamento_P3
             while (Max < Min) //ciclo che entra in funzione se Max è minore di Min
             {
                 Console.Clear();
-                Console.WriteLine("Devi inserire un numero maggiore del valore minimo");
-                Console.WriteLine("Inserisci il numero massimo");
-                Max = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Devi inserire un numero minore del valore massimo ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("maggiore ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("del valore ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("minimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("massimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
+
+                while (numero_intero_Max == false)
+                {
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci il numero ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("massimo.");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
+                }
             }
 
             Array.Resize(ref numeri, Quantità); //ridimensiona l'array numeri e gli da valore Quantità
@@ -418,59 +549,59 @@ namespace Riordinamento_P3
             return Scelta_generatore_numeri; //ritorna il valore di Scelta_generatore_numeri
         }
 
-        static void Swich(string Scelta_multi_thread, string Scelta_generatore)
+        static void Switch(string Scelta_multi_thread, string Scelta_generatore) //funzione per sciegliere se utilizzare il multi threading o no e se generare numeri casuali duplicati o no
         {
-            switch (Scelta_multi_thread)
+            switch (Scelta_multi_thread) //swich multi tread
             {
-                case "0":
+                case "0": //se si sceglie 0 si attiva il multi threading
                     {
-                        switch (Scelta_generatore)
+                        switch (Scelta_generatore) //switch generatore numeri duplicati
                         {
-                            case "0":
+                            case "0": //se si sceglie 0 genera numeri pseudo casuali duplicati
                                 {
-                                    int[] numeri_generati = Generatore_numeri_Duplicati();
+                                    int[] numeri_generati = Generatore_numeri_Duplicati(); //array
 
-                                    Task bubble_sort = new Task(Thread_bubble_sort_con_sentinella);
-                                    bubble_sort.Start();
+                                    Task bubble_sort = new Task(Thread_bubble_sort_con_sentinella); //task bubble_sort richiama la funzione Thread_bubble_sort_con_sentinella e la esegue con un thread
+                                    bubble_sort.Start(); //fa partire la task bubble_sort
 
-                                    Task merge_sort = new Task(Thread_merge_sort);
-                                    merge_sort.Start();
+                                    Task merge_sort = new Task(Thread_merge_sort); //task merge_sort richiama la funzione Thread_merge_sort e la esegue con un thread
+                                    merge_sort.Start(); //fa partire la task merge_sort
 
-                                    Task selection_sort = new Task(Thread_selection_sort);
-                                    selection_sort.Start();
+                                    Task selection_sort = new Task(Thread_selection_sort); //task selection_sort richiama la funzione Thread_selection_sort e la esegue con un thread
+                                    selection_sort.Start(); //fa partire la task selection_sort
 
-                                    merge_sort.Wait();
-                                    bubble_sort.Wait();
-                                    selection_sort.Wait();
+                                    merge_sort.Wait(); //fa aspettare la task merge_sort
+                                    bubble_sort.Wait(); //fa aspettare la task bubble_sort
+                                    selection_sort.Wait(); //fa aspettare la task selection_sort
 
                                     Console.WriteLine();
 
-                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
+                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort); //richiama la funzione classifica_algoritmi_di_ordinamento e invia peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort
 
                                     Console.ReadKey();
                                 }
                                 break;
 
-                            case "1":
+                            case "1": //se si sceglie 1 genera numeri pseudo casuali non duplicati
                                 {
-                                    int[] numeri_generati = Generatore_numeri_Non_Duplicati();
+                                    int[] numeri_generati = Generatore_numeri_Non_Duplicati(); //array
 
-                                    Task bubble_sort = new Task(Thread_bubble_sort_con_sentinella);
-                                    bubble_sort.Start();
+                                    Task bubble_sort = new Task(Thread_bubble_sort_con_sentinella); //task bubble_sort richiama la funzione Thread_bubble_sort_con_sentinella e la esegue con un thread
+                                    bubble_sort.Start(); //fa partire la task bubble_sort
 
-                                    Task merge_sort = new Task(Thread_merge_sort);
-                                    merge_sort.Start();
+                                    Task merge_sort = new Task(Thread_merge_sort); //task merge_sort richiama la funzione Thread_merge_sort e la esegue con un thread
+                                    merge_sort.Start(); //fa partire la task merge_sort
 
-                                    Task selection_sort = new Task(Thread_selection_sort);
-                                    selection_sort.Start();
+                                    Task selection_sort = new Task(Thread_selection_sort); //task selection_sort richiama la funzione Thread_selection_sort e la esegue con un thread
+                                    selection_sort.Start(); //fa partire la task selection_sort
 
-                                    merge_sort.Wait();
-                                    bubble_sort.Wait();
-                                    selection_sort.Wait();
+                                    merge_sort.Wait(); //fa aspettare la task merge_sort
+                                    bubble_sort.Wait(); //fa aspettare la task bubble_sort
+                                    selection_sort.Wait(); //fa aspettare la task selection_sort
 
                                     Console.WriteLine();
 
-                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
+                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort); //richiama la funzione classifica_algoritmi_di_ordinamento e invia peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort
 
                                     Console.ReadKey();
                                 }
@@ -478,36 +609,36 @@ namespace Riordinamento_P3
                         }
                     }
                     break;
-                case "1":
+                case "1": //se si sceglie 1 non si attiva il multi threading
                     {
                         switch (Scelta_generatore)
                         {
-                            case "0":
+                            case "0": //se si sceglie 0 genera numeri pseudo casuali duplicati
                                 {                                    
                                     int[] numeri_generati = Generatore_numeri_Duplicati();
                                     
-                                    algoritmo_selection_sort(numeri);
-                                    algoritmo_bubble_sort_con_sentinella(numeri);
-                                    algoritmo_merge_sort(numeri);
+                                    algoritmo_selection_sort(numeri); //richiama la funzione algoritmo_selection_sort e invia l'array numeri
+                                    algoritmo_bubble_sort_con_sentinella(numeri); //richiama la funzione algoritmo_bubble_sort_con_sentinella e invia l'array numeri
+                                    algoritmo_merge_sort(numeri); //richiama la funzione algoritmo_merge_sort e invia l'array numeri
 
                                     Console.WriteLine();
 
-                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
-                                    Console.ReadKey();
+                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort); //richiama la funzione classifica_algoritmi_di_ordinamento e invia peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort
+                                    Console.ReadKey(); 
                                 }
                                 break;
 
-                            case "1":
+                            case "1": //se si sceglie 1 genera numeri pseudo casuali non duplicati
                                 {
                                     int[] numeri_generati = Generatore_numeri_Non_Duplicati();
-                                    
-                                    algoritmo_selection_sort(numeri);
-                                    algoritmo_bubble_sort_con_sentinella(numeri);
-                                    algoritmo_merge_sort(numeri);
+
+                                    algoritmo_selection_sort(numeri); //richiama la funzione algoritmo_selection_sort e invia l'array numeri
+                                    algoritmo_bubble_sort_con_sentinella(numeri); //richiama la funzione algoritmo_bubble_sort_con_sentinella e invia l'array numeri
+                                    algoritmo_merge_sort(numeri); //richiama la funzione algoritmo_merge_sort e invia l'array numeri
 
                                     Console.WriteLine();
 
-                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort);
+                                    classifica_algoritmi_di_ordinamento(peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort); //richiama la funzione classifica_algoritmi_di_ordinamento e invia peso_selection_sort, peso_bubble_sort_con_sentinella, peso_merge_sort
                                     Console.ReadKey();
                                 }
                                 break;
@@ -517,20 +648,20 @@ namespace Riordinamento_P3
             }            
         }
 
-        static void Thread_selection_sort()
+        static void Thread_selection_sort() //funzione per richiamare la funzione algoritmo_selection_sort
         {
             algoritmo_selection_sort(numeri);            
         }
 
-        static void algoritmo_selection_sort(int[] numeri)
+        static void algoritmo_selection_sort(int[] numeri) //funzione per utilizzare l'algoritmo di riordinamento selection sort
         {                    
             int temp; //Inizializzo la variabile temp
             int min; //Inizializzo la variabile min
             string filename = @"selection_sort.txt";
-            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename);
-            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch();
+            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename); //inizializzaione della scrittura sul file
+            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch(); //funzione Diagnostics.Stopwatch
 
-            tempoRiordinoNumeri.Start();
+            tempoRiordinoNumeri.Start(); //fa partire il cronometro
             for (int i = 0; i < Quantità - 1; i++) //Ciclo for per riordinare i numeri
             {
                 peso_selection_sort += 5;
@@ -553,16 +684,16 @@ namespace Riordinamento_P3
                 numeri[i] = temp; //Pongo il numero posizionato al posto il cui valore corrisponde alla variabile i uguale alla variabile temp
                 peso_selection_sort += 3;
             }
-            tempoRiordinoNumeri.Stop();
+            tempoRiordinoNumeri.Stop(); //stop cronometro
             double temRiordNum = Convert.ToDouble(tempoRiordinoNumeri.ElapsedMilliseconds);//assegna alla variabile "tempRiordNum" il tempo che il programma ha impiegato per riordinare l'array di numeri generati
 
             File.WriteLine("I numeri riordinati sono: "); //Digito a schermo la seguente frase
             for (int i = 0; i < Quantità; i++) //Ciclo for per scrivere i numeri riordinati contenuti nell'array numeri
             {
-                File.WriteLine(numeri[i]);
+                File.WriteLine(numeri[i]); //scrittura numero su file
             }
             
-            File.Close();          
+            File.Close(); //chiusura file         
 
             Console.Write($"\nIl selection sort ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
@@ -589,31 +720,32 @@ namespace Riordinamento_P3
             }
         }
 
-        static void Thread_bubble_sort_con_sentinella()
+        static void Thread_bubble_sort_con_sentinella() //funzione per richiamare la funzione algoritmo_bubble_sort_con_sentinella
         {
             algoritmo_bubble_sort_con_sentinella(numeri);            
         }
 
-        static void algoritmo_bubble_sort_con_sentinella(int[] numeri)
+        static void algoritmo_bubble_sort_con_sentinella(int[] numeri) //funzione per utilizzare l'algoritmo di riordinamento bubble sort con sentinella
         {
             int Sentinella = numeri.Length;
             int x = 0;
             int temp;
             int y = 0;
             string filename = @"bubble_sort_con_sentinella.txt";
-            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename);
-            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch();
+            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename); //inizializzaione della scrittura sul file
+            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch(); //funzione Diagnostics.Stopwatch
 
-            tempoRiordinoNumeri.Start();
-            do
+            tempoRiordinoNumeri.Start(); //fa partire il cronometro
+            do //ciclo che continua fino a quando x non è uguale a 0
             {
                 peso_bubble_sort_con_sentinella++;
                 x = 0;
                 peso_bubble_sort_con_sentinella += 2;
-                for (int i = 0; i < Sentinella - 1; i++)
+
+                for (int i = 0; i < Sentinella - 1; i++) //ciclo che continua fino a quando i non è minore di Sentinella - 1
                 {
                     peso_bubble_sort_con_sentinella += 6;
-                    if (numeri[i] > numeri[i + 1])
+                    if (numeri[i] > numeri[i + 1]) //if numeri[i] è maggiore numeri[i + 1]
                     {
                         temp = numeri[i];
                         numeri[i] = numeri[i + 1];
@@ -628,16 +760,16 @@ namespace Riordinamento_P3
                 Sentinella = y;
                 peso_bubble_sort_con_sentinella += 2;
             } while (x == 1);
-            tempoRiordinoNumeri.Stop();
+            tempoRiordinoNumeri.Stop(); //stop cronometro
             double temRiordNum = Convert.ToDouble(tempoRiordinoNumeri.ElapsedMilliseconds);//assegna alla variabile "tempRiordNum" il tempo che il programma ha impiegato per riordinare l'array di numeri generati
 
             File.WriteLine("I numeri riordinati sono: "); //Digito a schermo la seguente frase
             for (int i = 0; i < Quantità; i++) //Ciclo for per scrivere i numeri riordinati contenuti nell'array numeri
             {
-                File.WriteLine(numeri[i]);
+                File.WriteLine(numeri[i]); //scrittura numero su file
             }
 
-            File.Close();
+            File.Close(); //chiusura file
 
             Console.Write($"\nIl bubble sort con sentinella ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
@@ -664,27 +796,28 @@ namespace Riordinamento_P3
             }
         }
 
-        static void Thread_merge_sort()
+        static void Thread_merge_sort() //funzione per richiamare la funzione algoritmo_merge_sort
         {
             algoritmo_merge_sort(numeri);
         }
 
-        static void algoritmo_merge_sort(int[] numeri)
+        static void algoritmo_merge_sort(int[] numeri) //funzione per utilizzare l'algoritmo di riordinamento merge sort
         {
             string filename = @"merge_sort.txt";
-            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename);
+            StreamWriter File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + filename); //inizializzaione della scrittura sul file
             int sx = 0;
             int dx = numeri.Length - 1;//servono al programma come indici per il merge sort
 
-            double temRiordNum = indici(numeri, sx, dx);
+            double temRiordNum = indici(numeri, sx, dx); //inizailizzo la variabile temRiordNum e le assegnio il valore della funzione indici e invio i valori numeri, sx, dx
 
             File.WriteLine("I numeri riordinati sono: "); //Digito a schermo la seguente frase
             for (int i = 0; i < Quantità; i++) //Ciclo for per scrivere i numeri riordinati contenuti nell'array numeri
             {
-                File.WriteLine(numeri[i]);
+                File.WriteLine(numeri[i]); //scrittura numero su file
             }
 
-            File.Close();
+            File.Close(); //chiusura file 
+
             Console.Write($"\nIl merge sort ha finito, ha impiegato ");
             //calcolo il tempo per la generazione dei numeri
             if (temRiordNum >= 1000)
@@ -712,7 +845,7 @@ namespace Riordinamento_P3
 
         public static Double indici(int[] copia, int sinistra, int destra)//serve per il calcolo degli indici che vengono assegnati alla funzione riordina per poter riordinare gli array
         {
-            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch();
+            var tempoRiordinoNumeri = new System.Diagnostics.Stopwatch(); //funzione Diagnostics.Stopwatch
             if (sinistra < destra)
             {
                 int metà = (sinistra + destra) / 2;
@@ -721,14 +854,14 @@ namespace Riordinamento_P3
                 indici(copia, sinistra, metà);
                 indici(copia, metà + 1, destra);
 
-                tempoRiordinoNumeri.Start();
+                tempoRiordinoNumeri.Start(); //fa partire il cronometro
                 Riordina(copia, sinistra, metà, destra);
-                tempoRiordinoNumeri.Stop();                
+                tempoRiordinoNumeri.Stop(); //stop cronometro                 
             }
             peso_merge_sort++;
 
-            double temRiordNum = Convert.ToDouble(tempoRiordinoNumeri.ElapsedMilliseconds);//assegna alla variabile "tempRiordNum" il tempo che il programma ha impiegato per riordinare l'array di numeri generati
-            return temRiordNum;
+            double temRiordNum = Convert.ToDouble(tempoRiordinoNumeri.ElapsedMilliseconds); //assegna alla variabile "tempRiordNum" il tempo che il programma ha impiegato per riordinare l'array di numeri generati
+            return temRiordNum; //ritorna il valore temRiordNum
         }
         public static void Riordina(int[] input, int sinistra, int metà, int destra)
         {
@@ -746,21 +879,21 @@ namespace Riordinamento_P3
                 {
                     input[a] = arraydx[k];
                     k++;
-                    peso_merge_sort += 3;//per l'assegnazione delle du
+                    peso_merge_sort += 3; //per l'assegnazione delle du
                 }
-                else if (k == arraydx.Length)//se la lunghezza dell'array di destra è pari alla seconda variabile si effettua lo scambio
+                else if (k == arraydx.Length) //se la lunghezza dell'array di destra è pari alla seconda variabile si effettua lo scambio
                 {
                     input[a] = arraysx[i];
                     i++;
                     peso_merge_sort += 4;
                 }
-                else if (arraysx[i] <= arraydx[k])//se il valore che si trova nella posizione i dell'array di sinistra è minore del valore che si trova nella prosizione k dell'array di destar allora quel valore viene memorizzato nell'array principale 
+                else if (arraysx[i] <= arraydx[k]) //se il valore che si trova nella posizione i dell'array di sinistra è minore del valore che si trova nella prosizione k dell'array di destar allora quel valore viene memorizzato nell'array principale 
                 {
                     input[a] = arraysx[i];
                     i++;
                     peso_merge_sort += 5;
                 }
-                else//sennò viene salvato il secondo valore
+                else //sennò viene salvato il secondo valore
                 {
                     input[a] = arraydx[k];
                     k++;
@@ -769,7 +902,7 @@ namespace Riordinamento_P3
             }
         }
 
-        static public void classifica_algoritmi_di_ordinamento(long peso_selection_sort, long peso_bubble_sort_con_sentinella, long peso_merge_sort)
+        static public void classifica_algoritmi_di_ordinamento(long peso_selection_sort, long peso_bubble_sort_con_sentinella, long peso_merge_sort) //funzione classifica_algoritmi_di_ordinamento
         {
             if (peso_selection_sort < peso_bubble_sort_con_sentinella && peso_merge_sort < peso_bubble_sort_con_sentinella)
             {
@@ -847,14 +980,14 @@ namespace Riordinamento_P3
 
         static void Main(string[] args)
         {
-            string Scelta_multi_thread = Scelta_multi_threading();
+            string Scelta_multi_thread = Scelta_multi_threading(); //inizializzo la stringa Scelta_multi_thread e assegno il valore di ritorno della funzione Scelta_multi_threading 
             Console.Clear();
 
-            string Scelta_generatore = Scelta_generatore_numeri();
+            string Scelta_generatore = Scelta_generatore_numeri(); //inizializzo la stringa Scelta_generatore e assegno il valore di ritorno della funzione Scelta_generatore_numeri 
             Console.Clear();
 
-            Swich(Scelta_multi_thread, Scelta_generatore);            
-            
+            Switch(Scelta_multi_thread, Scelta_generatore); //richiamo la funzione Switch e invio i valori di Scelta_multi_thread e Scelta_generatore              
+
             Console.ReadKey();
         }        
 
