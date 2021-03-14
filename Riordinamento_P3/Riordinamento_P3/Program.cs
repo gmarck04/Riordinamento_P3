@@ -48,72 +48,152 @@ namespace Riordinamento_P3
         public static int Quantità = 0; //Inizializzo la variabile Quantità e le do valore 0
         public static int Collisioni = 0; //Inizializzo la variabile Collisioni e le do valore 0  
         public static int[] numeri = new int[0]; //array
-        static public long peso_selection_sort = 0, peso_bubble_sort_con_sentinella = 0, peso_merge_sort = 0;
+        static public long peso_selection_sort = 0, peso_bubble_sort_con_sentinella = 0, peso_merge_sort = 0; //Inizializzo le variabili peso_selection_sort , peso_bubble_sort_con_sentinella e peso_merge_sort e le a tutte e tre valore 0  
 
-        static int[] Generatore_numeri_Duplicati()
+        static int[] Generatore_numeri_Duplicati() //funzione che genera numeri pseudo-casuali duplicati
         {
-            Console.Clear();
+            Console.Clear(); //pulizia della console
             Random random = new Random(); //Inizializza la classe random
 
-            Console.WriteLine("Inserisci quanti numeri vuoi generare, devono essere almeno 123456 numeri");          
+            Console.Write("Inserisci quanti numeri vuoi generare, devono essere ");
+            Console.ForegroundColor = ConsoleColor.Blue; //cambio colore delle parole a schermo
+            Console.Write("almeno ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("123456 ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("numeri.");
+
             bool numero_intero_Quantità = Int32.TryParse(Console.ReadLine(), out Quantità);
 
-            while (numero_intero_Quantità == false || Quantità < 123456)
+            while (numero_intero_Quantità == false || Quantità < 123456) //ciclo che entra in funzione se numero_intero_Quantità == false o se Quantità è minore di 123456
             {
                 Console.Clear();
-                if (numero_intero_Quantità == false)
+                if (numero_intero_Quantità == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
-                    Console.WriteLine("Devi inserire un valore intero");
-                    Console.WriteLine("Inserisci quanti numeri vuoi generare");
+                    Console.Write("Devi inserire un valore ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("intero");
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                    Console.Write("Inserisci ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("quanti ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri vuoi generare.");
+
                     numero_intero_Quantità = Int32.TryParse(Console.ReadLine(), out Quantità);
                 }
                 else
                 {
-                    Console.WriteLine("Devi inserire almeno 123456 numeri");
-                    Console.WriteLine("Inserisci quanti numeri vuoi generare");
+                    Console.Write("Devi inserire ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("almeno ");                    
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("123456 ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri.");
+
+                    Console.Write("Inserisci ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("quanti ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("numeri vuoi generare.");
+
                     numero_intero_Quantità = Int32.TryParse(Console.ReadLine(), out Quantità);
                 }
             }
 
-            Console.WriteLine("Inserisci il numero massimo");
+            Console.Write("Inserisci il numero ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("massimo.");
+            Console.ForegroundColor = ConsoleColor.White;
+
             bool numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
 
-            while (numero_intero_Max == false)
+            while (numero_intero_Max == false) //ciclo che entra in funzione se numero_intero_Max == false
             {
                 Console.Clear();
-                Console.WriteLine("Devi inserire un valore intero");
-                Console.WriteLine("Inserisci il numero massimo");
+
+                Console.Write("Devi inserire un valore ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("intero");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("massimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
                 numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
             }
+                        
+            Console.Write("Inserisci il numero ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("minimo.");
+            Console.ForegroundColor = ConsoleColor.White;
 
-            Console.WriteLine("Inserisci il numero minimo");
             bool numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);
 
-            while (numero_intero_Min == false)
+            while (numero_intero_Min == false) //ciclo che entra in funzione se numero_intero_Min == false
             {
                 Console.Clear();
-                Console.WriteLine("Devi inserire un valore intero");
-                Console.WriteLine("Inserisci il numero minimo");
+
+                Console.Write("Devi inserire un valore ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("intero");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("minimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+                
                 numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);                
             }
 
-            while (Min > Max)
+            while (Min > Max) //ciclo che entra in funzione se Min è maggiore di Max
             {
                 Console.Clear();
-                Console.WriteLine("Devi inserire un numero minore del valore massimo");
-                Console.WriteLine("Inserisci il numero minimo");
+
+                Console.Write("Devi inserire un numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("minore ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("del valore ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("massimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("minimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
                 Min = Convert.ToInt32(Console.ReadLine());
             }
 
-            while (Max < Min)
+            while (Max < Min) //ciclo che entra in funzione se Max è minore di Min
             {
                 Console.Clear();
-                Console.WriteLine("Devi inserire un numero maggiore del valore minimo");
-                Console.WriteLine("Inserisci il numero massimo");
+
+                Console.Write("Devi inserire un numero minore del valore massimo ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("maggiore ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("del valore ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("minimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Inserisci il numero ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("massimo.");
+                Console.ForegroundColor = ConsoleColor.White;
+
                 Max = Convert.ToInt32(Console.ReadLine());
             }
 
-            Array.Resize(ref numeri, Quantità);
+            Array.Resize(ref numeri, Quantità); //ridimensiona l'array numeri e gli da valore Quantità
 
             for (int i = 0; i < Quantità; i++) //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici
             {
@@ -121,10 +201,10 @@ namespace Riordinamento_P3
 
                 numeri[i] = randomNumber; //Inserire nel file il valore nell'array numeri                                
             }
-            return numeri;
+            return numeri; //la funzione ritorna valore numeri
         }
 
-        static int[] Generatore_numeri_Non_Duplicati()
+        static int[] Generatore_numeri_Non_Duplicati() //funzione che genera numeri pseudo-casuali che non sono duplicati
         {
             Console.Clear();
             Random random = new Random(); //Inizializza la classe random
@@ -132,10 +212,10 @@ namespace Riordinamento_P3
             Console.WriteLine("Inserisci quanti numeri vuoi generare, devono essere almeno 123456 numeri");
             bool numero_intero_Quantità = Int32.TryParse(Console.ReadLine(),out Quantità);      
 
-            while (numero_intero_Quantità == false || Quantità < 123456)
+            while (numero_intero_Quantità == false || Quantità < 123456) //ciclo che entra in funzione se numero_intero_Quantità == false o se Quantità è minore di 123456
             {
                 Console.Clear();
-                if (numero_intero_Quantità == false)
+                if (numero_intero_Quantità == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
                     Console.WriteLine("Devi inserire un valore intero");
                     Console.WriteLine("Inserisci quanti numeri vuoi generare");
@@ -152,10 +232,10 @@ namespace Riordinamento_P3
             Console.WriteLine("Inserisci il numero massimo");
             bool numero_intero_Max = Int32.TryParse(Console.ReadLine(), out Max);
 
-            while (numero_intero_Max == false || Max < Quantità)
+            while (numero_intero_Max == false || Max < Quantità) //ciclo che entra in funzione se numero_intero_Max == false o se Max è minore del valore di Quantità
             {
                 Console.Clear();
-                if (numero_intero_Max == false)
+                if (numero_intero_Max == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
                     Console.WriteLine("Devi inserire un valore intero");
                     Console.WriteLine("Inserisci il numero massimo");
@@ -172,10 +252,10 @@ namespace Riordinamento_P3
             Console.WriteLine("Inserisci il numero minimo");
             bool numero_intero_Min = Int32.TryParse(Console.ReadLine(), out Min);
 
-            while (numero_intero_Min == false || Min > Max)
+            while (numero_intero_Min == false || Min > Max) //ciclo che entra in funzione se numero_intero_Min == false o se Min è minore del valore di Max
             {
                 Console.Clear();
-                if (numero_intero_Min == false)
+                if (numero_intero_Min == false) //if che entra in funzione se numero_intero_Quantità == false
                 {
                     Console.WriteLine("Devi inserire un valore intero");
                     Console.WriteLine("Inserisci il numero minimo");
@@ -189,7 +269,7 @@ namespace Riordinamento_P3
                 }
             }
 
-            while (Max < Min)
+            while (Max < Min) //ciclo che entra in funzione se Max è minore di Min
             {
                 Console.Clear();
                 Console.WriteLine("Devi inserire un numero maggiore del valore minimo");
@@ -197,22 +277,22 @@ namespace Riordinamento_P3
                 Max = Convert.ToInt32(Console.ReadLine());
             }
 
-            Array.Resize(ref numeri, Quantità);
+            Array.Resize(ref numeri, Quantità); //ridimensiona l'array numeri e gli da valore Quantità
 
             for (int i = 0; i < Quantità; i++) //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici
             {
                 int randomNumber = random.Next(Min, Max); //Creo un ciclo for per creare e inserire nel file i vari numeri pseudo-randomici      
                                   
                 bool controllo = false;
-                for (int a = 0; a < numeri.Length; a++)
+                for (int a = 0; a < numeri.Length; a++) //ciclo for che continua fino a quando a non è minore della grandezza di numeri
                 {
-                    if(numeri[a] == randomNumber)
+                    if(numeri[a] == randomNumber) //if che entra in funzione se numeri corrisponde a randomNumber
                     {
                         controllo = true;
                     }                    
                 }
 
-                if (controllo == true)
+                if (controllo == true) //if che entra in funzione se controllo corrisponde a true
                 {
                     Collisioni++;
                     i--;
@@ -222,12 +302,12 @@ namespace Riordinamento_P3
                     numeri[i] = randomNumber;                    
                 }
             }
-            return numeri;
+            return numeri; //la funzione ritorna valore numeri
         }
             
-        static string Scelta_multi_threading()
+        static string Scelta_multi_threading() //funzione che serve per chiedere all'utente se vuole usare il multi threading (task)
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White; 
             Console.Write("Se vuoi attivare il multi threading ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("digita 0");
@@ -244,9 +324,9 @@ namespace Riordinamento_P3
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(".");
 
-            string Scelta_multi_threading = Convert.ToString(Console.ReadKey(true).KeyChar);
+            string Scelta_multi_threading = Convert.ToString(Console.ReadKey(true).KeyChar); //assegnazione valore di Scelta_multi_threading e do valore letto da schermo (il valore è solo un carattere)
 
-            while(Scelta_multi_threading != "0" && Scelta_multi_threading != "1")
+            while (Scelta_multi_threading != "0" && Scelta_multi_threading != "1") //ciclo che inizia se Scelta_multi_threading è diverso da 0 o 1
             {
                 Console.Clear();
 
@@ -276,12 +356,12 @@ namespace Riordinamento_P3
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(".");
 
-                Scelta_multi_threading = Convert.ToString(Console.ReadKey(true).KeyChar);
+                Scelta_multi_threading = Convert.ToString(Console.ReadKey(true).KeyChar); //assegnazione valore di Scelta_multi_threading e do valore letto da schermo (il valore è solo un carattere)
             }
-            return Scelta_multi_threading;
+            return Scelta_multi_threading; //ritorna il valore di Scelta_multi_threading
         }
 
-        static string Scelta_generatore_numeri()
+        static string Scelta_generatore_numeri() //funzione che serve per chiedere all'utente se vuole generare numeri duplicati o non duplicati
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Se vuoi generare dei numeri casuali che possono duplicarsi ");
@@ -300,12 +380,12 @@ namespace Riordinamento_P3
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(".");
 
-            string Scelta_generatore_numeri = Convert.ToString(Console.ReadKey(true).KeyChar);
+            string Scelta_generatore_numeri = Convert.ToString(Console.ReadKey(true).KeyChar); //assegnazione valore di Scelta_generatore_numeri e do valore letto da schermo (il valore è solo un carattere)
 
-            while (Scelta_generatore_numeri != "0" && Scelta_generatore_numeri != "1")
+            while (Scelta_generatore_numeri != "0" && Scelta_generatore_numeri != "1") //ciclo che inizia se Scelta_multi_threading è diverso da 0 o 1
             {
                 Console.Clear();
-
+                
                 Console.Write("Hai inserito un valore diverso da ");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("'0' ");
@@ -333,9 +413,9 @@ namespace Riordinamento_P3
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(".");
 
-                Scelta_generatore_numeri = Convert.ToString(Console.ReadKey(true).KeyChar);
+                Scelta_generatore_numeri = Convert.ToString(Console.ReadKey(true).KeyChar); //assegnazione valore di Scelta_generatore_numeri e do valore letto da schermo (il valore è solo un carattere)
             }
-            return Scelta_generatore_numeri;
+            return Scelta_generatore_numeri; //ritorna il valore di Scelta_generatore_numeri
         }
 
         static void Swich(string Scelta_multi_thread, string Scelta_generatore)
@@ -688,19 +768,7 @@ namespace Riordinamento_P3
                 }
             }
         }
-        //
-        
-        static void Main(string[] args)
-        {
-            string Scelta_multi_thread = Scelta_multi_threading();
-            Console.Clear();
-            string Scelta_generatore = Scelta_generatore_numeri();
-            Console.Clear();
 
-            Swich(Scelta_multi_thread, Scelta_generatore);            
-            
-            Console.ReadKey();
-        }
         static public void classifica_algoritmi_di_ordinamento(long peso_selection_sort, long peso_bubble_sort_con_sentinella, long peso_merge_sort)
         {
             if (peso_selection_sort < peso_bubble_sort_con_sentinella && peso_merge_sort < peso_bubble_sort_con_sentinella)
@@ -775,11 +843,20 @@ namespace Riordinamento_P3
                 Console.WriteLine($"poi abbiamo il merge sort che ha fatto {peso_merge_sort} azioni ");
                 Console.WriteLine($"e poi abbiamo il selection sort che ha fatto {peso_selection_sort} azioni.");
             }
-            else
-            {
-                Console.WriteLine("Nuovo caso limite");//caso non previsto (per test del codice)
-            }
         }
+
+        static void Main(string[] args)
+        {
+            string Scelta_multi_thread = Scelta_multi_threading();
+            Console.Clear();
+
+            string Scelta_generatore = Scelta_generatore_numeri();
+            Console.Clear();
+
+            Swich(Scelta_multi_thread, Scelta_generatore);            
+            
+            Console.ReadKey();
+        }        
 
     }
 }
